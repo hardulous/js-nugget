@@ -102,3 +102,34 @@ const finVal = no3.myReduce((acc, curr, i, arr) => {
 }, 0);
 // console.log(finVal);
 
+// 3. Output Question ::
+
+let students = [
+  { name: "aman", rollNo: 10, marks: 40 },
+  { name: "saurav", rollNo: 12, marks: 22 },
+  { name: "atul", rollNo: 13, marks: 50 },
+  { name: "gopi", rollNo: 16, marks: 63 },
+];
+
+// (A). Return Only Name Of Student Who Scored More Than 60 Marks
+
+let Ans1 = students
+  .filter((item, i) => item.marks > 60)
+  .map((item, i) => item.name);
+console.log(Ans1);
+
+// Here As Both .map() and .filter() return new Array so chaining can be done
+
+// (B). Return Total Marks Of Students With Marks Greater Than 60 After 20 Marks Have Been Added To Those Who Scored Less Than 60
+
+let Ans2 = students
+  .map((item, i) => {
+    if (item.marks < 60) {
+      item.marks += 20;
+    }
+    return item;
+  })
+  .filter((item, i) => item.marks > 60)
+  .reduce((acc, curr) => acc + curr.marks, 0);
+
+console.log(Ans2);

@@ -67,13 +67,13 @@ let b = "aman";
   // c=32   show error , asignment to constant variable.
 }
 
-// (E). Hoisting => , hoisting is a behavior where variable and function declarations are moved to the top of their respective scopes, before the code is actually executed. This means that you can use a variable or function before it is declared, without encountering an error. However, it's important to note that only the declarations are hoisted, not the actual assignments or function body
+// (E). Hoisting => , hoisting is a behavior where variable and function declarations are moved to the top of their respective scopes, before the code is actually executed. This means that you can use a variable or function before it is declared, without encountering an error. However, it's important to note that only the declarations are hoisted, not the actual assignment
 
 /*
 
 Here when js code is executed 2 phase happen 1st is creation phase and 2nd is execution phase.
 
-In creation phase 3 things happend 1st it create a global or window object , 2nd it create a heap memory to store all variable and function references in window object and 3rd it intilize all variables and function reference with undefined and hoisting take place in creation phase
+In creation phase 3 things happend 1st it create a global or window object , 2nd it create a heap memory to store all variable and function references in window object and 3rd it intilize all variables and function reference with undefined and hoisting take place in creation phase, Also first hoisting will initlize the global scope then it will initlize the local scope means hoisting take place first in global then in local or function scope
 
 In execution phase the js engine execute the code line by line , initlizing all the varible with value and calling the function EX,
 */
