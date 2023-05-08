@@ -238,5 +238,41 @@ const personObj2 = changeAgeAndReference(personObj1);
 console.log(personObj1);
 console.log(personObj2);
 
+// 17. Shallow Copy vs Deep Copy => In js, when you assign an object to a new variable, That variable hold the reference of that object but a copy of the object is not created. When you modify the original object, the changes are reflected in all references to that object.
 
-// 17. Shallow Copy vs Deep Copy => 
+// To create a true copy of an object, we use either shallow copying or deep copying.
+
+// A shallow copy of an object is a new object with the same properties as the original object. However, the properties themselves may or may not copied i.e if properties are primitive type then they are copied but if reference type like array or object then their references are copied. This means that if the properties are objects or arrays, they are not copied. Instead, the new object will reference the same objects as the original object , To create a shallow copy we use object.assign('target object', sourceObj1, sourceObj2, ....moreObj) or 2nd way is by spread operator (...) which also return a shallow copy , EX ::
+
+const original1 = {
+  name: "Aman",
+  age: 22,
+  address: { city: "Karbala" },
+  nickName: ["amu", "choda"],
+};
+
+const shallowCopy = Object.assign({}, original1);
+
+// changes to primitive property will not affect the original because they are deep cloned
+shallowCopy.name = "Akshit";
+shallowCopy.address.city = "Mayur Vihar";
+
+// here changes to reference type property will affect orignal object becaue they are not deep cloned
+shallowCopy.nickName.push("Chor");
+
+console.log(original1);
+console.log(shallowCopy);
+
+// A deep copy of an object is a new object with the same properties as the original object. However, the properties themselves are also copied recursively i.e whether properties are primitive and reference type they are deep cloned in new object. This means that if the properties are objects, they are also copied recursively, creating a new copy of the entire object , To create a deep copy we can use json.stringigy() then json.parse() will return deep copy , EX ::
+
+const original2 = { name: "rahul", age: 23, address: { city: "America" } };
+const deepCopy1 = JSON.parse(JSON.stringify(original2));
+
+deepCopy1.name = "Harsh";
+deepCopy1.address.city = "Kolkata";
+
+console.log(original2);
+console.log(deepCopy1);
+
+
+

@@ -132,3 +132,16 @@ let User = {
 
 User.rc1();
 User.rc2();
+
+
+// (C). Hoisting behaviour 
+
+// Regular function => In regular functions, both function declarations and variable declarations are hoisted to the top of the current scope. This means that you can call a function or use a variable before it's declared in the code. Arrow functions, on the other hand, have different hoisting behavior. Arrow function expressions are not hoisted at all, so you can't call an arrow function before it's declared , This is because arrow function is nothing but just a variable holding a function reference and for this variable regular hoisting for variable will occur which in turn if var then it is undefined but if let or const then will give reference error , EX ::
+
+console.log(Varfunc)
+console.log(letFunc)    // as let and const are hoisted in TDZ so this will give error     
+console.log(constFunc)
+
+var Varfunc = ()=>console.log("Hello var")
+let letFunc = ()=>console.log("Hello let")
+const constFunc = ()=>console.log("Hello var")
